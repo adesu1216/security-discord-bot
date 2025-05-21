@@ -1,0 +1,2 @@
+# security-discord-bot
+サーバーに導入するだけで簡単に使用可能。Discordサーバーのセキュリティを高めるBotです
