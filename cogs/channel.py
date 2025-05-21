@@ -14,17 +14,17 @@ class Channel(commands.Cog):
             return
 
         try:
-            # チャンネル情報保存
+            
             name = channel.name
             category = channel.category
             position = channel.position
             topic = channel.topic
             overwrites = channel.overwrites
 
-            # チャンネル削除
+           
             await channel.delete(reason=f"再構築 by {interaction.user}")
 
-            # チャンネル再作成
+            
             new_channel = await interaction.guild.create_text_channel(
                 name=name,
                 category=category,
