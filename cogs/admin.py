@@ -28,14 +28,14 @@ class Admin(commands.Cog):
         try:
             user_to_unban = None
 
-            # 数値IDとして試す
+            
             if identifier.isdigit():
                 target_id = int(identifier)
                 async for ban_entry in interaction.guild.bans():
                     if ban_entry.user.id == target_id:
                         user_to_unban = ban_entry.user
                         break
-            # 名前#タグ形式で試す
+            
             elif "#" in identifier:
                 name, discriminator = identifier.split("#")
                 async for ban_entry in interaction.guild.bans():
@@ -58,7 +58,7 @@ class Admin(commands.Cog):
         except Exception as e:
             await interaction.response.send_message(f"❌ BAN解除中にエラーが発生しました: {e}", ephemeral=True)
 
-# Cog登録
+
 async def setup(bot):
     await bot.add_cog(Admin(bot))
 
