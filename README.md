@@ -24,4 +24,4 @@
 git clone https://github.com/adesu1216/security-discord-bot.git
 cd security-discord-bot
 pip install -r requirements.txt
-python main.py
+py main.py or python main.py
