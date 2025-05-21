@@ -9,6 +9,10 @@
 - discord.py
 - dotenv（環境変数でトークン管理）
 
+- ## 🔑 .envファイルの作成
+ルートディレクトリに `.env` ファイルを作成し、以下のように記述してください：
+DISCORD_TOKEN=(your bot token)
+
 ## 🚀 機能一覧
 - `/warn @ユーザー`：警告を与え、回数に応じて処罰（例：timeoutやBAN）
 - `/ban @ユーザー`：管理者が直接BAN
