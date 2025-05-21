@@ -7,7 +7,7 @@ from datetime import timedelta, datetime
 
 REPORT_FILE = "report_channel_config.json"
 
-# 通報チャンネル設定の読み書き
+
 def load_report_channels():
     try:
         with open(REPORT_FILE, "r", encoding="utf-8") as f:
@@ -23,7 +23,7 @@ class Report(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # 通報チャンネル作成
+    
     @app_commands.command(name="craft_report_channel", description="通報チャンネルを自動作成します（管理者専用）")
     async def craft_channel(self, interaction: Interaction):
         if not interaction.user.guild_permissions.administrator:
@@ -43,7 +43,7 @@ class Report(commands.Cog):
 
         await interaction.response.send_message(f"✅ 通報チャンネルを作成しました: {channel.mention}", ephemeral=False)
 
-    # 通報機能
+    
     @app_commands.command(name="report", description="ユーザーを通報します")
     @app_commands.describe(user="通報するユーザー", reason="通報理由")
     async def report(self, interaction: Interaction, user: discord.Member, reason: str):
@@ -65,7 +65,7 @@ class Report(commands.Cog):
         except Exception as e:
             await interaction.response.send_message(f"❌ エラーが発生しました: {e}", ephemeral=True)
 
-    # ミュート機能
+    
     @app_commands.command(name="mute", description="指定ユーザーを一定時間ミュートします（例：/mute @ユーザー 20）")
     @app_commands.describe(user="ミュートするユーザー", minutes="ミュート時間（分）")
     async def mute(self, interaction: Interaction, user: discord.Member, minutes: int):
@@ -85,7 +85,7 @@ class Report(commands.Cog):
         except Exception as e:
             await interaction.response.send_message(f"❌ ミュートに失敗しました: {e}", ephemeral=True)
 
-    # アンミュート機能
+    
     @app_commands.command(name="unmute", description="指定ユーザーのミュートを解除します（管理者専用）")
     @app_commands.describe(user="ミュート解除するユーザー")
     async def unmute(self, interaction: Interaction, user: discord.Member):
@@ -103,6 +103,6 @@ class Report(commands.Cog):
         except Exception as e:
             await interaction.response.send_message(f"❌ ミュート解除に失敗しました: {e}", ephemeral=True)
 
-# 登録
+
 async def setup(bot):
     await bot.add_cog(Report(bot))
